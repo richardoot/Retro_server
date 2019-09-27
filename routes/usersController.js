@@ -81,11 +81,11 @@ module.exports = {
                                 // 'token': jwtUtils.generateTokenForUser(userFound)
                             });
                         } else {
-                            return res.status(400).json({ 'error': 'invalid password' });
+                            return res.status(403).json({ 'error': 'invalid password' });
                         }
                     });
                 } else {
-                    return res.status(400).json({ 'error': 'login invalid' });
+                    return res.status(403).json({ 'error': 'login invalid' });
                 }
             })
             .catch(function(err) {
