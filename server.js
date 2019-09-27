@@ -1,16 +1,20 @@
 //Imports
     const express = require('express');
     const bodyParser = require('body-parser');
-    var apiRouter = require('.apiRouter').router;
 
-    //require('./main.js');
-
-//Initialiser bodyParser
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(bodyParser.json());
+    console.log('DEBUG 0');
+    
+    var apiRouter = require('./apiRouter').router;
 
 //Instanciation du server
     let app = express();
+
+//Initialiser bodyParser
+    app.use(bodyParser.urlencoded({ extended: false  }));
+    app.use(bodyParser.json());
+
+
+
 
 //Configuration des routes
     app.get(`/`, function(req,res){
@@ -18,8 +22,7 @@
 
         res.status(200).send('<h1> Hello World !! </h1>');
     });
-
-
+ 
 app.use('/api/', apiRouter);
 
 //Launch server
